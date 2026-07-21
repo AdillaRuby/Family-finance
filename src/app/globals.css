@@ -1,0 +1,156 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* ── Typography ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Radius (design system: 16px base) ── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ── Brand Colors ── */
+  --color-primary: #2563eb;
+  --color-primary-foreground: #ffffff;
+  --color-primary-hover: #1d4ed8;
+
+  --color-success: #16a34a;
+  --color-success-foreground: #ffffff;
+  --color-success-subtle: #f0fdf4;
+
+  --color-warning: #ea580c;
+  --color-warning-foreground: #ffffff;
+  --color-warning-subtle: #fff7ed;
+
+  --color-danger: #dc2626;
+  --color-danger-foreground: #ffffff;
+  --color-danger-subtle: #fef2f2;
+
+  /* ── Neutral Palette ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ── Sidebar ── */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+}
+
+/* ── Light Mode CSS Variables ── */
+:root {
+  --background: #f9fafb; /* gray-50 */
+  --foreground: #111827; /* gray-900 */
+
+  --card: #ffffff;
+  --card-foreground: #111827;
+
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+
+  --muted: #f3f4f6; /* gray-100 */
+  --muted-foreground: #6b7280; /* gray-500 */
+
+  --border: #e5e7eb; /* gray-200 */
+  --input: #e5e7eb;
+  --ring: #2563eb;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-border: #e5e7eb;
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #111827;
+
+  --chart-1: #10b981; /* green-500 for income */
+  --chart-2: #ef4444; /* red-500 for expense */
+  --chart-3: #3b82f6; /* blue-500 */
+  --chart-4: #f59e0b; /* amber-500 */
+  --chart-5: #8b5cf6; /* purple-500 */
+}
+
+/* ── Dark Mode CSS Variables ── */
+.dark {
+  --background: #030712; /* gray-950 */
+  --foreground: #f9fafb; /* gray-50 */
+
+  --card: #111827; /* gray-900 */
+  --card-foreground: #f9fafb;
+
+  --popover: #111827;
+  --popover-foreground: #f9fafb;
+
+  --muted: #1f2937; /* gray-800 */
+  --muted-foreground: #9ca3af; /* gray-400 */
+
+  --border: #1f2937; /* gray-800 */
+  --input: #1f2937;
+  --ring: #3b82f6;
+
+  --sidebar: #111827;
+  --sidebar-foreground: #f9fafb;
+  --sidebar-border: #1f2937;
+  --sidebar-accent: #1f2937;
+  --sidebar-accent-foreground: #f9fafb;
+
+  --chart-1: #22c55e; /* green-500 lighter for dark mode */
+  --chart-2: #f87171; /* red-400 for dark mode */
+  --chart-3: #60a5fa; /* blue-400 */
+  --chart-4: #fbbf24; /* amber-400 */
+  --chart-5: #a78bfa; /* purple-400 */
+}
+
+/* ── Base Styles ── */
+*,
+*::before,
+*::after {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Smooth scrolling ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar (subtle) ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
